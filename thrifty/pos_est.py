@@ -63,7 +63,7 @@ def solve_numerically(tdoa_array, rx_pos):
     if len(uniq_rx) < dims + 1:
         raise EstimationError("Underdetermined")
 
-    rx_coords = np.array(rx_pos.values())
+    rx_coords = np.array(list(rx_pos.values()))
     min_bounds = np.amin(rx_coords, axis=0) - MAX_DIST
     max_bounds = np.amax(rx_coords, axis=0) + MAX_DIST
 
