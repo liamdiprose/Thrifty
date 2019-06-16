@@ -74,7 +74,7 @@ def lfsr(taps, init):
     seq = np.zeros(seq_len, dtype='bool')
     seq[:len(init)] = init
 
-    for i in xrange(len(init), seq_len):
+    for i in range(len(init), seq_len):
         seq[i] = seq[i - len(init)]
         for tap in taps:
             seq[i] ^= seq[i - len(init) + tap]
