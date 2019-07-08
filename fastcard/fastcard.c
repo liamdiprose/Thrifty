@@ -177,7 +177,8 @@ int fastcard_next(fastcard_t* fc) {
 int fastcard_process(fastcard_t* fc, const fastcard_data_t ** data) {
     fastcard_data_t* d = &fc->data;
     fft_perform(fc->samples_to_fft);
-    volk_32fc_magnitude_squared_32f_a(d->fft_power,
+
+    volk_32fc_magnitude_squared_32f_u(d->fft_power,
                                       (lv_32fc_t*)d->fft,
                                       fc->args->block_len);
     d->detected = cardet_detect(&fc->cardet_settings,
